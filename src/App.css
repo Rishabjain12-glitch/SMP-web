@@ -1,0 +1,155 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* CSS Variables for Theming */
+:root {
+  --primary-color: #004080;
+  --secondary-color: #ffcc00;
+  --background-light: #ffffff;
+  --background-dark: #121212;
+  --text-light: #ffffff;
+  --text-dark: #222222;
+  --accent-color: #1e90ff;
+  --error-color: #ff4d4d;
+  --success-color: #28a745;
+  --font-heading: 'Roboto', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --transition-speed: 0.3s;
+}
+
+/* Reset and Base Styles */
+body, html, #root, .app {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  min-height: 100vh;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Dark Mode */
+.app.dark {
+  background-color: var(--background-dark);
+  color: var(--text-light);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, var(--primary-color) 0%, #003366 100%), 
+              url('/images/header-bg.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 1.2rem 3rem;
+  color: var(--text-light);
+  box-shadow: 0 4px 12px rgba(0, 64, 128, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  cursor: default;
+  user-select: none;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-speed);
+}
+.logo:hover {
+  transform: scale(1.05);
+  color: var(--secondary-color);
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.nav-menu a {
+  color: var(--text-light);
+  text-decoration: none;
+  position: relative;
+  padding: 0.3rem 0;
+  transition: color var(--transition-speed);
+  font-size: 1.1rem;
+  border-radius: 4px;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--secondary-color);
+  transition: width var(--transition-speed);
+  border-radius: 2px;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: var(--secondary-color);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+  width: 100%;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--text-light);
+  color: var(--text-light);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+  user-select: none;
+}
+.theme-toggle:hover {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  box-shadow: 0 0 12px var(--secondary-color);
+  transform: scale(1.05);
+}
+
+/* Main Content */
+main {
+  padding: 3rem 4rem;
+  min-height: 75vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: inherit;
+  transition: color var(--transition-speed);
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(90deg, var(--primary-color) 0%, #003366 100%);
+  color: var(--text-light);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-family: var(--font-body);
+}
